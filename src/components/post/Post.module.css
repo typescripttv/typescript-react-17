@@ -1,0 +1,15 @@
+.title {
+  color: red;
+}
+
+.description {
+  color: purple;
+}
+
+.author {
+  color: orange;
+}
+
+.isPublished {
+  color: blue;
+}

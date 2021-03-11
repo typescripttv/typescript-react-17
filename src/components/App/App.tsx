@@ -1,13 +1,9 @@
 import React from "react";
 
-interface Post {
-  title: string;
-  description: string;
-  author: string;
-  isPublished: boolean;
-}
+import Post, { PostProps } from "../post/Post";
+import classNames from "./App.module.css";
 
-const posts: Post[] = [
+const posts: PostProps[] = [
   {
     title: "example post",
     description: "some text",
@@ -30,17 +26,11 @@ const posts: Post[] = [
 
 const App: React.FC = () => {
   return (
-    <div>
-      <h1>Hello typescript tv!</h1>
-      <div>
+    <div className={classNames.wrapper}>
+      <h1 className={classNames.title}>Hello typescript tv!</h1>
+      <div className={classNames.postsWrapper}>
         {posts.map((post) => (
-          <div key={post.title}>
-            <p>title: {post.title}</p>
-            <p>description: {post.description}</p>
-            <p>author: {post.author}</p>
-            <p>isPublished: {post.isPublished ? "True" : "False"}</p>
-            <hr />
-          </div>
+          <Post key={post.title} {...post} />
         ))}
       </div>
     </div>
